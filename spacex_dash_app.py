@@ -61,7 +61,7 @@ app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
             )
 def pie_plot(launch_site):
     if launch_site == "All":
-        pie_fig = px.pie(spacex_df, names='Launch Site', title='% of launches by Launch Site')
+        pie_fig = px.pie(spacex_df[spacex_df["class"] == 1], names='Launch Site', title='% of success launches by Launch Site')
         return [dcc.Graph(figure = pie_fig)]
     
     if launch_site != None:
